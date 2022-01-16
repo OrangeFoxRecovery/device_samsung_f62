@@ -1,0 +1,24 @@
+# mount point       fstype    device                                                                flags
+
+/boot               emmc      /dev/block/by-name/boot               
+/recovery           emmc      /dev/block/by-name/recovery           flags=backup=1
+/cache              ext4      /dev/block/by-name/cache              flags=display="Cache"
+/metadata           ext4      /dev/block/by-name/metadata           flags=display="Metadata";backup=1;wipeingui
+/data               f2fs      /dev/block/by-name/userdata           flags=display="Data"
+/efs                ext4      /dev/block/by-name/sec_efs            flags=display="Efs"
+/sec_efs            ext4      /dev/block/by-name/sec_efs            flags=display="Sec_efs"
+/carrier            ext4      /dev/block/by-name/carrier            flags=display="Carrier"
+/preload            ext4      /dev/block/by-name/hidden             flags=display="Preload"
+/modem              emmc      /dev/block/by-name/radio              flags=display="Modem"
+/misc               emmc      /dev/block/by-name/misc               flags=display="Misc";backup=1;flashimg=1
+/keydata            ext4      /dev/block/by-name/keydata            flags=display="Keydata"
+/keyrefuge          f2fs      /dev/block/by-name/keyrefuge          flags=display="Keyrefuge"
+/dtbo               emmc      /dev/block/by-name/dtbo               flags=display="DTBO";backup=1;flashimg=1
+/prism              ext4      /dev/block/by-name/prism              flags=display="Prism"
+/optics             ext4      /dev/block/by-name/optics             flags=display="Optics"
+/vbmeta_system      emmc      /dev/block/by-name/vbmeta_system      flags=display="Vbmeta System"
+/vendor_boot        emmc      /dev/block/by-name/vendor_boot        flags=display="Vendor Boot";backup=1;flashimg=1
+/vbmeta_samsung     emmc      /dev/block/by-name/vbmeta_samsung     flags=display="Vbmeta Samsung"
+
+# External Storage
+/sdcard1            vfat      /dev/block/mmcblk0p1                  flags=display="MicroSD Card"
