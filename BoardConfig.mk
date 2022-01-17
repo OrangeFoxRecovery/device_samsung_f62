@@ -53,7 +53,6 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 71102464
 
 # Kernel
 BOARD_KERNEL_CMDLINE := \
-	androidboot.selinux=permissive \
 	androidboot.selinux=permissive
 
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
