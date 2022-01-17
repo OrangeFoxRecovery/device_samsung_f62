@@ -55,7 +55,7 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 71102464
 BOARD_KERNEL_CMDLINE := \
 	androidboot.selinux=permissive
 
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 
