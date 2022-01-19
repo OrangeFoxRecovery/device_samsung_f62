@@ -38,7 +38,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_USE_GREEN_LED=0
 	export FOX_ENABLE_APP_MANAGER=0
 	export TW_DEFAULT_LANGUAGE="en"
-	export FOX_RECOVERY_INSTALL_PARTITION=""
 	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
 	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
@@ -58,13 +57,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
 	# f62 only
 	export FOX_USE_LZMA_COMPRESSION=1
-	export FOX_DYNAMIC_SAMSUNG_FIX=1
-
-	# OTA
-	export OF_KEEP_DM_VERITY=1
-	export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
-	export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
-	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+	export OF_VANILLA_BUILD=1
 
 	# Screen settings
 	export OF_SCREEN_H=2400
