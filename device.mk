@@ -14,18 +14,13 @@
 # limitations under the License.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+LOCAL_PATH := device/samsung/f62
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/twrp/config/common.mk)
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Inherit from f62 device
-$(call inherit-product, device/samsung/f62/device.mk)
-
-# Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := f62
-PRODUCT_NAME := twrp_f62
-PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-E625F
-PRODUCT_MANUFACTURER := samsung
+# Fastbootd
+PRODUCT_PACKAGES += \
+	fastbootd \
+	android.hardware.fastboot@1.0-impl-mock \
+	android.hardware.fastboot@1.0-impl-mock.recovery
