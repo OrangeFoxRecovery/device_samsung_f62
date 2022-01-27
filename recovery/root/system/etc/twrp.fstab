@@ -1,24 +1,26 @@
-# mount point       fstype    device                                                                flags
+# Android fstab file.
 
-/boot               emmc      /dev/block/by-name/boot               
-/recovery           emmc      /dev/block/by-name/recovery           flags=backup=1
-/cache              ext4      /dev/block/by-name/cache              flags=display="Cache"
-/metadata           ext4      /dev/block/by-name/metadata           flags=display="Metadata";backup=1;wipeingui
-/data               f2fs      /dev/block/by-name/userdata           flags=display="Data"
-/efs                ext4      /dev/block/by-name/sec_efs            flags=display="Efs"
-/sec_efs            ext4      /dev/block/by-name/sec_efs            flags=display="Sec_efs"
-/carrier            ext4      /dev/block/by-name/carrier            flags=display="Carrier"
-/preload            ext4      /dev/block/by-name/hidden             flags=display="Preload"
-/modem              emmc      /dev/block/by-name/radio              flags=display="Modem"
-/misc               emmc      /dev/block/by-name/misc               flags=display="Misc";backup=1;flashimg=1
-/keydata            ext4      /dev/block/by-name/keydata            flags=display="Keydata"
-/keyrefuge          f2fs      /dev/block/by-name/keyrefuge          flags=display="Keyrefuge"
-/dtbo               emmc      /dev/block/by-name/dtbo               flags=display="DTBO";backup=1;flashimg=1
-/prism              ext4      /dev/block/by-name/prism              flags=display="Prism"
-/optics             ext4      /dev/block/by-name/optics             flags=display="Optics"
-/vbmeta_system      emmc      /dev/block/by-name/vbmeta_system      flags=display="Vbmeta System"
-/vendor_boot        emmc      /dev/block/by-name/vendor_boot        flags=display="Vendor Boot";backup=1;flashimg=1
-/vbmeta_samsung     emmc      /dev/block/by-name/vbmeta_samsung     flags=display="Vbmeta Samsung"
+# mount point  fstype device                                   device2              flags
+/system_root    ext4   /dev/block/platform/13d60000.ufs/by-name/system        flags=backup=0;display="System"
+/vendor         ext4   /dev/block/platform/13d60000.ufs/by-name/vendor        flags=backup=0;display="Vendor";wipeingui
+/product        ext4   /dev/block/platform/13d60000.ufs/by-name/product       flags=backup=0;display="Product";wipeingui
 
-# External Storage
-/sdcard1            vfat      /dev/block/mmcblk0p1                  flags=display="MicroSD Card"
+/boot           emmc   /dev/block/platform/13d60000.ufs/by-name/boot
+/recovery       emmc   /dev/block/platform/13d60000.ufs/by-name/recovery      flags=backup=1
+
+/system_image   emmc   /dev/block/platform/13d60000.ufs/by-name/system        flags=backup=1
+/vendor_image   emmc   /dev/block/platform/13d60000.ufs/by-name/vendor        flags=backup=1
+/product_image  emmc   /dev/block/platform/13d60000.ufs/by-name/product       flags=backup=1;flashimg;display="Product Image"
+
+/data           f2fs   /dev/block/platform/13d60000.ufs/by-name/userdata      flags=encryptable=footer;length=-20480
+
+/dtb            emmc   /dev/block/platform/13d60000.ufs/by-name/dtb           flags=backup=1;display="DTB"
+/dtbo           emmc   /dev/block/platform/13d60000.ufs/by-name/dtbo          flags=backup=1;display="DTBO"
+/modem          emmc   /dev/block/platform/13d60000.ufs/by-name/radio         flags=backup=1;display="Baseband"
+/efs            ext4   /dev/block/platform/13d60000.ufs/by-name/efs           flags=backup=1;display="EFS"
+/misc           emmc   /dev/block/platform/13d60000.ufs/by-name/misc          flags=display="Misc"
+/cache          ext4   /dev/block/platform/13d60000.ufs/by-name/cache         flags=display="Cache"
+
+/external_sd    vfat   /dev/block/mmcblk0p1 /dev/block/mmcblk0                flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg        vfat   /dev/block/sdf1 /dev/block/sdf                         flags=display="USB-OTG";storage;wipeingui;removable
+
